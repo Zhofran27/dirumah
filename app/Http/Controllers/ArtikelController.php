@@ -10,14 +10,10 @@ class ArtikelController extends Controller
     public function index()
     {
         return view('Artikel', [
-            'artikels' => DB::table('artikels')->get(),
+            'artikels' => DB::table('artikels')->orderBy('id', 'desc')->get(),
         ]);
     }
 
-    public function create()
-    {
-        return view('create');
-    }
 
     public function store(Request $request)
     {
@@ -25,6 +21,6 @@ class ArtikelController extends Controller
             'list' => $request->list,
         ]);
 
-        return redirect('/');
+        return back();
     }
 }

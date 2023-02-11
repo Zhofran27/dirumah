@@ -4,16 +4,18 @@
 
 <h2>Artikels</h2>
 
-<div>
-    <a href="/create">Create Artikel</a>
-</div>
+<form action="/" method="post">
+    @csrf
+    <input type="text" name="list" placeholder="The Artikel">
+    <button type="submit">add</button>
+</form>
 
-<ol>
+<ul style="list-style-type: none">
     
-    @foreach ($artikels as $artikel)
-     <li>{{ $artikel->list }}</li>   
+    @foreach ($artikels as $index => $artikel)
+     <li>{{ $index + 1 }} - {{ $artikel->list }}</li>   
     @endforeach
-</ol>
+</ul>
 
 @endsection
 
