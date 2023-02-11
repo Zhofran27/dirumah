@@ -15,3 +15,4 @@ use App\Http\Controllers\ArtikelController;
 */
 
 Route::get('/', [ArtikelController::class, 'index']);
+// Route::get('/', [ArtikelController::class, 'gabut']);
