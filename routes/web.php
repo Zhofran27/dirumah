@@ -16,3 +16,5 @@ use App\Http\Controllers\ArtikelController;
 
 Route::get('/', [ArtikelController::class, 'index']);
 Route::post('/', [ArtikelController::class, 'store']);
+Route::get('/{id}/edit', [ArtikelController::class, 'edit']);
+Route::put('/{id}', [ArtikelController::class, 'update']);

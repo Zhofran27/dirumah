@@ -13,7 +13,7 @@
 <ul style="list-style-type: none">
     
     @foreach ($artikels as $index => $artikel)
-     <li>{{ $index + 1 }} - {{ $artikel->list }}</li>   
+     <li>{{ $index + 1 }} - {{ $artikel->list }} - <a style="color: red" href="/{{ $artikel->id }}/edit"> edit</a></li>   
     @endforeach
 </ul>
 

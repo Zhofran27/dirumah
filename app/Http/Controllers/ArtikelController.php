@@ -23,4 +23,16 @@ class ArtikelController extends Controller
 
         return back();
     }
+
+    public function edit($id)
+    {
+        $artikel = DB::table('artikels')->where('id', $id)->first();
+        return view('edit', ['artikel' => $artikel]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::table('artikels')->where('id', $id)->update(['list' => $request->list ]);
+        return redirect("/");
+    }
 }
