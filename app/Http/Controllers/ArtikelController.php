@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,35 +11,33 @@ class ArtikelController extends Controller
     public function index()
     {
         return view('Artikel', [
-            'artikels' => DB::table('artikels')->orderBy('id', 'desc')->get(),
+            'artikels' => Artikel::orderBy('id', 'desc')->get(),
         ]);
     }
 
 
     public function store(Request $request)
     {
-        DB::table('artikels')->insert([
-            'list' => $request->list,
-        ]);
+        Artikel::create(['list' => $request->list, ]);
 
         return back();
     }
 
     public function edit($id)
     {
-        $artikel = DB::table('artikels')->where('id', $id)->first();
+        $artikel = Artikel::find($id);
         return view('edit', ['artikel' => $artikel]);
     }
 
     public function update(Request $request, $id)
     {
-        DB::table('artikels')->where('id', $id)->update(['list' => $request->list ]);
+        Artikel::find($id)->update(['list' => $request->list ]);
         return redirect("/");
     }
 
     public function destroy($id)
     {
-        DB::table('artikels')->where('id', $id)->delete();
+        Artikel::find($id)->delete();
         return back();
     }
 }
