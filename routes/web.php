@@ -15,4 +15,5 @@ use App\Http\Controllers\ArtikelController;
 */
 
 Route::get('/', [ArtikelController::class, 'index']);
-// Route::get('/', [ArtikelController::class, 'gabut']);
+Route::get('/create', [ArtikelController::class, 'create']);
+Route::post('/', [ArtikelController::class, 'store']);

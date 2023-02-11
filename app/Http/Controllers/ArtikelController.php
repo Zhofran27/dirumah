@@ -14,8 +14,17 @@ class ArtikelController extends Controller
         ]);
     }
 
-    // public function gabut()
-    // {
-    //     return view('artikel');
-    // }
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        DB::table('artikels')->insert([
+            'list' => $request->list,
+        ]);
+
+        return redirect('/');
+    }
 }
