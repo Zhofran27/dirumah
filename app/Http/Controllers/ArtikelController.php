@@ -35,4 +35,10 @@ class ArtikelController extends Controller
         DB::table('artikels')->where('id', $id)->update(['list' => $request->list ]);
         return redirect("/");
     }
+
+    public function destroy($id)
+    {
+        DB::table('artikels')->where('id', $id)->delete();
+        return back();
+    }
 }

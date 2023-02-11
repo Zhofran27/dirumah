@@ -13,7 +13,18 @@
 <ul style="list-style-type: none">
     
     @foreach ($artikels as $index => $artikel)
-     <li>{{ $index + 1 }} - {{ $artikel->list }} - <a style="color: red" href="/{{ $artikel->id }}/edit"> edit</a></li>   
+     <li style="margin-bottom: 15px">
+         {{ $index + 1 }} - {{ $artikel->list }} 
+        <div>
+            <a style="color: skyblue" href="/{{ $artikel->id }}/edit"> edit</a>
+            <form action="/{{ $artikel->id }}" method="post" style="display: inline">
+               @csrf
+               @method("delete")
+               <button type="submit">delete</button>
+            </form>
+        </div>
+    </li> 
+
     @endforeach
 </ul>
 

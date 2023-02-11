@@ -18,3 +18,4 @@ Route::get('/', [ArtikelController::class, 'index']);
 Route::post('/', [ArtikelController::class, 'store']);
 Route::get('/{id}/edit', [ArtikelController::class, 'edit']);
 Route::put('/{id}', [ArtikelController::class, 'update']);
+Route::delete('/{id}', [ArtikelController::class, 'destroy']);
