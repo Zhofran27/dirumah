@@ -11,33 +11,33 @@ class ArtikelController extends Controller
     public function index()
     {
         return view('Artikel', [
-            'artikels' => Artikel::orderBy('id', 'desc')->get(),
+            'artikels' => Artikel::orderBy('id', 'desc', 'image')->get(),
         ]);
     }
 
 
-    public function store(Request $request)
-    {
-        Artikel::create(['list' => $request->list, ]);
+    // public function store(Request $request)
+    // {
+    //     Artikel::create(['list' => $request->list, ]);
 
-        return back();
-    }
+    //     return back();
+    // }
 
-    public function edit($id)
-    {
-        $artikel = Artikel::find($id);
-        return view('edit', ['artikel' => $artikel]);
-    }
+    // public function edit($id)
+    // {
+    //     $artikel = Artikel::find($id);
+    //     return view('edit', ['artikel' => $artikel]);
+    // }
 
-    public function update(Request $request, $id)
-    {
-        Artikel::find($id)->update(['list' => $request->list ]);
-        return redirect("/");
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     Artikel::find($id)->update(['list' => $request->list ]);
+    //     return redirect("/");
+    // }
 
-    public function destroy($id)
-    {
-        Artikel::find($id)->delete();
-        return back();
-    }
+    // public function destroy($id)
+    // {
+    //     Artikel::find($id)->delete();
+    //     return back();
+    // }
 }

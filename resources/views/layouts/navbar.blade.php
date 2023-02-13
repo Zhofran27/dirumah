@@ -12,7 +12,25 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Kategori</a>
           </li>
-          
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          @auth
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome back,
+            </a>
+             <ul class="dropdown-menu">
+               <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
+               <li><hr class="dropdown-divider"></li>
+               <li><a class="dropdown-item" href="#"></i> Logout</a></li>
+             </ul>
+          </li>
+         @else
+          <li class="nav-item">
+            <a href="/login" class="nav-link"> Login</a>
+          </li>
+          @endauth
+        </ul> 
         </ul>
       </div>
     </div>

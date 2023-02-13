@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Artikel extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function category()
+    public function artikels()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Artikel::class);
     }
 }
