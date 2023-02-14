@@ -69,7 +69,7 @@ class DashboardArtikelController extends Controller
     public function edit($id)
     {
         $artikel = Artikel::find($id);
-        return view('edit', ['artikel' => $artikel]);
+        return view('edit', compact('artikel'));
     }
 
     /**
@@ -87,7 +87,7 @@ class DashboardArtikelController extends Controller
             'gambar' => $request->gambar,
             'isi' => $request->isi,
         ]);
-        return redirect("/dashboard/artikels");
+        return redirect("/dashboard/artikels")->with('success','Berhasil Mengupdate Data');
     }
 
     /**
