@@ -48,9 +48,15 @@ Route::get('/login', function () {
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function() {
-    return view('dashboard.index');
+Route::group(['middleware' => ['auth','Ceklevel:admin']], function () {
+    Route::get('/dashboard', function() {
+        return view('dashboard.index');
+    });
 });
+
+// Route::get('/dashboard', function() {
+//     return view('dashboard.index');
+// });
 
 Route::resource('/dashboard/artikels', DashboardArtikelController::class);
 Route::get('/dashboard/artikels/', [DashboardArtikelController::class, 'index']);
